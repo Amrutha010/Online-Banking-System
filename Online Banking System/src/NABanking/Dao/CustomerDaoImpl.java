@@ -1,4 +1,4 @@
-package NABanking.Dao;
+package NaBanking.Dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,10 +7,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.mysql.cj.protocol.Resultset;
+import com.mysql.cj.xdevapi.Statement;
 
-import NABanking.model.Customer;
-import NABanking.model.Transactions;
-import NABanking.utility.DBUTIL;
+import NaBanking.model.Customer;
+import NaBanking.model.Transactions;
+import NaBanking.utility.DBUTIL;
 
 public class CustomerDaoImpl implements CustomerDao{
 
@@ -42,8 +43,20 @@ public class CustomerDaoImpl implements CustomerDao{
 
 	@Override
 	public String transferMoney(int money, int Ac_no) {
-		// TODO Auto-generated method stub
+		try (Connection conn= DBUTIL.provideConnection()){
+		PreparedStatement ps= conn.prepareStatement("update customers set balance=balance+? where ac_no=?");
+			ps.setInt(1, money);
+			ps.setInt(2, Ac_no);
+			int x = ps.executeUpdate();
+			if(x > 0) 
+				return (x+" Transaction sucessfull..!");
+			else
+				return ("Transaction fail..");
+		}catch(SQLException e ) {
+			e.printStackTrace();
+		}
 		return null;
+		
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package NABanking.Dao;
+package NaBanking.Dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import NABanking.model.Accountant;
-import NABanking.model.Customer;
-import NABanking.utility.DBUTIL;
+import NaBanking.model.Accountant;
+import NaBanking.model.Customer;
+import NaBanking.utility.DBUTIL;
 
 public class AccountantDaoImpl implements AccountantDao{
 

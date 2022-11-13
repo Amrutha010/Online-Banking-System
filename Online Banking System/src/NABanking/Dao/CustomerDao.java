@@ -1,9 +1,9 @@
-package NABanking.Dao;
+package NaBanking.Dao;
 
 import java.util.List;
 
-import NABanking.model.Customer;
-import NABanking.model.Transactions;
+import NaBanking.model.Customer;
+import NaBanking.model.Transactions;
 
 public interface CustomerDao {
 	public Customer CustomerLogin(String login_id,String password);

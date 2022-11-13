@@ -1,13 +1,13 @@
-package NABanking.usecases;
+package NaBanking.usecase;
 
 import java.util.Scanner;
 
-import NABanking.Dao.AccountantDao;
-import NABanking.Dao.AccountantDaoImpl;
-import NABanking.Dao.CustomerDao;
-import NABanking.Dao.CustomerDaoImpl;
-import NABanking.model.Accountant;
-import NABanking.model.Customer;
+import NaBanking.Dao.AccountantDao;
+import NaBanking.Dao.AccountantDaoImpl;
+import NaBanking.Dao.CustomerDao;
+import NaBanking.Dao.CustomerDaoImpl;
+import NaBanking.model.Accountant;
+import NaBanking.model.Customer;
 
 public class Demo {
 
@@ -36,19 +36,37 @@ public class Demo {
 			System.out.println("3) View Transaction history");
 			System.out.println("4) Logout");
 			int choice = sc.nextInt();
+			
 			if(choice==1) {
 				System.out.println("----------------------------------------------------------------------------------------");
 				System.out.println("Name                     Account Number                       balance                   ");
 				System.out.println(customer.getFirstname()+customer.getLastName()+"                 "+customer.getAc_no()+"                             "+customer.getBalance());
 				System.out.println("-----------------------------------------------------------------------------------------");
+				
 			}else if(choice==2) {
+				System.out.println("Enter Receiver Account Number");
+				int rac_no = sc.nextInt();
+				System.out.println("Enter Amount");
+				int amount = sc.nextInt();
+				try {
+					String msg = dao.transferMoney(amount,rac_no);
+					System.out.println(msg);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				
 			}else if(choice==3) {
+				System.out.println("Transfer of 5000");
+				System.out.println("Transfer of 450");
+				System.out.println("Withdrwal of 5000");
+				System.out.println("Transfer of 450");
+				System.out.println("Deposit of 10000");
 				
 			}else {
 				System.out.println("Invalid Input");
+				
 			}
-			
 		}if(user==2) {
 			System.out.println("Enter your Login Id");
 			String login_id = sc.next();
@@ -61,6 +79,15 @@ public class Demo {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}
+			int choice = sc.nextInt();
+			System.out.println("1) Add Account");
+			System.out.println("2) Edit Account");
+			System.out.println("3) Delete Account");
+			System.out.println("4) see Account details with account number");
+			System.out.println("5) see Account details with account number");
+			if(choice==1) {
+				
 			}
 		}
 	}

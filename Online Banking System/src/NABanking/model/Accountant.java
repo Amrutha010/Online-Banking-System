@@ -1,4 +1,4 @@
-package NABanking.model;
+package NaBanking.model;
 
 public class Accountant {
 	private int Emp_id;

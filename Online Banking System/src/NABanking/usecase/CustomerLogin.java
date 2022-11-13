@@ -1,10 +1,9 @@
-package NABanking.usecases;
-
+package NaBanking.usecase;
 import java.util.Scanner;
 
-import NABanking.Dao.CustomerDao;
-import NABanking.Dao.CustomerDaoImpl;
-import NABanking.model.Customer;
+import NaBanking.Dao.CustomerDao;
+import NaBanking.Dao.CustomerDaoImpl;
+import NaBanking.model.Customer;
 
 public class CustomerLogin {
 
